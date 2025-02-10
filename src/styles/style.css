@@ -1,0 +1,40 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-grey: hsl(217, 12%, 63%);
+  --dark-blue: hsl(213, 19%, 18%);
+  --very-dark-blue: hsl(216, 12%, 8%);
+  --orange: hsl(25, 97%, 53%);
+  --black-gradient: radial-gradient(circle, #232A34 0%, #181E27 100%);
+}
+
+body {
+  font-family: 'Overpass';
+}
+
+.txt-heading-lg {
+  font-size: 1.75rem;
+  line-height: auto;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.txt-heading-md {
+  font-size: 0.9375rem;
+  line-height: auto;
+  letter-spacing: 0.125rem;
+  font-weight: 700;
+}
+
+.txt-body {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.txt-rating {
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  font-weight: 700;
+}
