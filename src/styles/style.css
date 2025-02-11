@@ -1,40 +1,188 @@
-:root {
-  --white: hsl(0, 0%, 100%);
-  --light-grey: hsl(217, 12%, 63%);
-  --dark-blue: hsl(213, 19%, 18%);
-  --very-dark-blue: hsl(216, 12%, 8%);
-  --orange: hsl(25, 97%, 53%);
-  --black-gradient: radial-gradient(circle, #232A34 0%, #181E27 100%);
+@layer reset, globals, composition, blocks, utilities;
+
+@import "./reset.css" layer(reset);
+
+@layer globals {
+  :root {
+    --white: hsl(0, 0%, 100%);
+    --light-grey: hsl(217, 12%, 63%);
+    --dark-blue: hsl(213, 19%, 18%);
+    --very-dark-blue: hsl(216, 12%, 8%);
+    --orange: hsl(25, 97%, 53%);
+    --black-gradient: radial-gradient(#232A34, #181E27);
+
+    /* Spacings
+   * card padding and body gap 24-32
+   * border radius 16-32
+   * rating gap 18-22 (1.125-1.375)
+   *
+   * 16, 18, 22, 24, 32
+   * */
+
+    /* @link https://utopia.fyi/space/calculator?c=375,16,1.2,1440,16,1.25,5,2,&s=,1.125|1.375|1.5|2,xl-2xl|s-2xl|m-l&g=s,l,xl,12 */
+    @utopia spaceScale({
+      minWidth: 375,
+      maxWidth: 1440,
+      minSize: 16,
+      maxSize: 16,
+      positiveSteps: [1.125, 1.375, 1.5, 2, 2.5, 3],
+      negativeSteps: [],
+      customSizes: ["xl-2xl", "s-2xl"],
+      prefix: "space",
+      relativeTo: "viewport-width",
+    });
 }
 
 body {
   font-family: 'Overpass';
+  background-color: var(--very-dark-blue);
+  color: var(--light-grey);
 }
 
-.txt-heading-lg {
-  font-size: 1.75rem;
-  line-height: auto;
-  letter-spacing: 0;
-  font-weight: 700;
+main {
+  height: 100dvh;
+  display: grid;
+  place-content: center;
+  align-content: center;
 }
 
-.txt-heading-md {
-  font-size: 0.9375rem;
-  line-height: auto;
-  letter-spacing: 0.125rem;
-  font-weight: 700;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--white);
+}
 }
 
-.txt-body {
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  letter-spacing: 0;
-  font-weight: 400;
+@layer composition {
+  .stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .stack>*+* {
+    margin-block-start: var(--space);
+  }
+
+  .stack.stack--recursive *+* {
+    margin-block-start: var(--space);
+  }
+
+  .stack>*+*,
+  .stack.stack--recursive *+* {
+    --space: 2rem;
+  }
+
+  .frame {
+    --n: 1;
+    --d: 1;
+    aspect-ratio: var(--n) / var(--d);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .frame>img,
+  .frame>video {
+    /*inline-size: 100%;*/
+    /*block-size: 100%;*/
+    object-fit: cover;
+  }
 }
 
-.txt-rating {
-  font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0.2px;
-  font-weight: 700;
+@layer utilities {
+  .txt-heading-lg {
+    font-size: 1.75rem;
+    line-height: auto;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  .txt-heading-md {
+    font-size: 0.9375rem;
+    line-height: auto;
+    letter-spacing: 0.125rem;
+    font-weight: 700;
+  }
+
+  .txt-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .txt-rating {
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    font-weight: 700;
+  }
+}
+
+@layer block {
+  .card {
+    background: var(--black-gradient);
+    border-radius: var(--space-s-2xl);
+    max-width: 25rem;
+    overflow: hidden;
+  }
+
+  .card__content {
+    display: flex;
+    transition: transform 0.2s ease-in;
+
+    &.submitted {
+      transform: translateX(-100%);
+    }
+  }
+
+  .icon {
+    background-color: var(--dark-blue);
+    border-radius: calc(var(--space-3xl-4xl) / 2);
+    max-height: var(--space-3xl-4xl);
+    max-width: var(--space-3xl-4xl);
+  }
+
+  .review-step {
+    padding: var(--space-xl-2xl);
+    min-width: 100%;
+  }
+
+  .rating {
+    display: flex;
+    gap: var(--space-m-l);
+    counter-reset: ratings;
+    justify-content: center;
+  }
+
+  .rating__text {
+    background-color: var(--dark-blue);
+    border-radius: calc(var(--space-3xl-4xl) / 2);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--space-3xl-4xl);
+    min-width: var(--space-3xl-4xl);
+
+    &:hover,
+    input:focus-visible+& {
+      background-color: var(--orange);
+      color: var(--dark-blue);
+    }
+
+    input:checked+& {
+      background-color: var(--white);
+      color: var(--dark-blue);
+    }
+
+    input:focus-visible+& {
+      outline: 2px solid var(--orange);
+      outline-offset: 3px;
+    }
+  }
 }
