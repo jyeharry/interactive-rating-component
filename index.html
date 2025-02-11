@@ -16,54 +16,62 @@
 <body>
     <main>
 
-      <!-- Rating state start -->
+      <div class='card'>
+        <div class='card__content'>
+          <section class='review-step active'>
+            <form class='stack'>
+              <div class='frame icon'>
+                <img src="/icon-star.svg" alt="A star">
+              </div>
 
-      <section class='card'>
-        <form class='stack'>
-          <div class='frame icon'>
-            <img src="/icon-star.svg" alt="A star">
-          </div>
+              <h1>How did we do?</h1>
 
-          <h1>How did we do?</h1>
+              <p>
+                Please let us know how we did with your support request. All feedback is appreciated 
+                to help us improve our offering!
+              </p>
 
-          <p>
-            Please let us know how we did with your support request. All feedback is appreciated 
-            to help us improve our offering!
-          </p>
+              <div class='rating'>
+                <label>
+                  <input type='radio' name='rating' class='sr-only' value='1'>
+                  <span class='rating__text'>1<span class='sr-only'> out of 5</span></span>
+                </label>
+                <label>
+                  <input type='radio' name='rating' class='sr-only' value='2'>
+                  <span class='rating__text'>2<span class='sr-only'> out of 5</span></span>
+                </label>
+                <label>
+                  <input type='radio' name='rating' class='sr-only' value='3'>
+                  <span class='rating__text'>3<span class='sr-only'> out of 5</span></span>
+                </label>
+                <label>
+                  <input type='radio' name='rating' class='sr-only' value='4'>
+                  <span class='rating__text'>4<span class='sr-only'> out of 5</span></span>
+                </label>
+                <label>
+                  <input type='radio' name='rating' class='sr-only' value='5'>
+                  <span class='rating__text'>5<span class='sr-only'> out of 5</span></span>
+                </label>
+              </div>
 
-          <div>
-            <input type='radio' name='rating'>1</input>
-            <input type='radio' name='rating'>2</input>
-            <input type='radio' name='rating'>3</input>
-            <input type='radio' name='rating'>4</input>
-            <input type='radio' name='rating'>5</input>
-          </div>
+              <button type='submit' class='btn'>Submit</button>
+            </form>
+          </section>
 
-          <button type='submit' class='btn'>Submit</button>
-        </form>
-      </section>
+          <section class='review-step'>
+            <img src="/illustration-thank-you.svg" alt="Thank you">
 
-      <!-- Rating state end -->
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <!-- Thank you state start -->
-      <section class='card stack' style='display: none;'>
-        <img src="/illustration-thank-you.svg" alt="Thank you">
+            <p>You selected <!-- Add rating here --> out of 5</p>
 
-        <p>You selected <!-- Add rating here --> out of 5</p>
+            <h1>Thank you!</h1>
 
-        <h1>Thank you!</h1>
-
-        <p>
-          We appreciate you taking the time to give a rating. If you ever need more support, 
-          don’t hesitate to get in touch!
-        </p>
-      </section>
-
-      <!-- Thank you state end -->
+            <p>
+              We appreciate you taking the time to give a rating. If you ever need more support, 
+              don’t hesitate to get in touch!
+            </p>
+          </section>
+        </div>
+      </div>
     </main>
 </body>
 </html>
