@@ -17,21 +17,23 @@
     <main>
 
       <div class='card'>
-        <div class='card__content'>
-          <section class='review-step active'>
+        <div class='review-form'>
+          <section class='review-form__step active'>
             <form class='stack'>
               <div class='frame icon'>
                 <img src="/icon-star.svg" alt="A star">
               </div>
 
-              <h1>How did we do?</h1>
+              <hgroup class='stack--sm'>
+                <h1 class='txt-heading-lg'>How did we do?</h1>
 
-              <p>
-                Please let us know how we did with your support request. All feedback is appreciated 
-                to help us improve our offering!
-              </p>
+                <p>
+                  Please let us know how we did with your support request. All feedback is appreciated 
+                  to help us improve our offering!
+                </p>
+              </hgroup>
 
-              <div class='rating'>
+              <fieldset class='rating'>
                 <label>
                   <input type='radio' name='rating' class='sr-only' value='1'>
                   <span class='rating__text'>1<span class='sr-only'> out of 5</span></span>
@@ -52,26 +54,31 @@
                   <input type='radio' name='rating' class='sr-only' value='5'>
                   <span class='rating__text'>5<span class='sr-only'> out of 5</span></span>
                 </label>
-              </div>
+              </fieldset>
 
               <button type='submit' class='btn'>Submit</button>
             </form>
           </section>
 
-          <section class='review-step'>
-            <img src="/illustration-thank-you.svg" alt="Thank you">
+          <section class='review-form__step stack justify-center center'>
+            <div>
+              <img src="/illustration-thank-you.svg" alt="Thank you" >
+            </div>
 
-            <p>You selected <!-- Add rating here --> out of 5</p>
+            <p class='label'>You selected <span id='ratingValue'></span> out of 5</p>
 
-            <h1>Thank you!</h1>
+            <hgroup class='stack--sm'>
+              <h1>Thank you!</h1>
 
-            <p>
-              We appreciate you taking the time to give a rating. If you ever need more support, 
-              don’t hesitate to get in touch!
-            </p>
+              <p>
+                We appreciate you taking the time to give a rating. If you ever need more support, 
+                don’t hesitate to get in touch!
+              </p>
+            </hgroup>
           </section>
         </div>
       </div>
     </main>
+    <script type="module" src="./src/main.js"></script>
 </body>
 </html>
