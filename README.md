@@ -44,10 +44,13 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- CSS layers
 - Mobile-first workflow
 - [Vite](https://vite.dev/)
 
 ### What I learned
+
+I used CSS layers for the first time. I can see them being really useful and will continue using them in the future.
 
 First time making a project with Vite. May have been overkill since it's only a simple project but it's good to start learning it.
 
