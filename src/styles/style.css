@@ -11,15 +11,6 @@
     --orange: hsl(25, 97%, 53%);
     --black-gradient: radial-gradient(#232A34, #181E27);
 
-    /* Spacings
-   * card padding and body gap 24-32
-   * border radius 16-32
-   * rating gap 18-22 (1.125-1.375)
-   *
-   * 16, 18, 22, 24, 32
-   * */
-
-    /* @link https://utopia.fyi/space/calculator?c=375,16,1.2,1440,16,1.25,5,2,&s=,1.125|1.375|1.5|2,xl-2xl|s-2xl|m-l&g=s,l,xl,12 */
     @utopia spaceScale({
       minWidth: 375,
       maxWidth: 1440,
