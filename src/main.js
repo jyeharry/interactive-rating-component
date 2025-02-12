@@ -11,7 +11,8 @@ const submitRating = () => {
 }
 
 const disableForm = () => {
-  document.querySelector('fieldset')?.setAttribute('disabled', 'true')
+  const radioInputs = document.querySelectorAll('input[name="rating"]')
+  radioInputs?.forEach((input) => input.setAttribute('disabled', 'true'))
   btn?.setAttribute('disabled', 'true')
   document.querySelector('.review-form')?.classList.toggle('submitted')
 }
